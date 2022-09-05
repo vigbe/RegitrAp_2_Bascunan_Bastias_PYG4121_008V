@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="boton" slot="start">
+      <ion-back-button 
+        class="boton"
+        defaultHref="/"
+        text="Back"
+        mode="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="titulo">Ingresar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form #formulario="ngForm" (ngSubmit) ="onSubmit()">
+    <ion-list-header>
+      <ion-label class="label">Alumno DUOCUC  </ion-label>
+      <ion-label>|</ion-label>
+      <ion-label class="label">Ingresa a tu cuenta </ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label class="label" position="floating">Email Institucional </ion-label>
+      <ion-input type="email" placeholder="email"
+                 name="email" value="" [(ngModel)]= "usuario.email"
+                 pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                 required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="label" position="floating">Ingresa tu contraseña </ion-label>
+      <ion-input type="password" placeholder="Repite Contraseña"
+                 name="password" value="" [(ngModel)]= "usuario.password"
+                 required>
+      </ion-input>
+    </ion-item>
+
+
+    <ion-button color="warning" [disabled] ="formulario.invalid"
+    type="submit" expand="block" routerLink="/sesion-alumno">
+      Ingresar
+    </ion-button>
+    <ion-button color="danger" 
+    type="submit" expand="block" routerLink="/recuperar-contrasenna">
+      ¿olvidaste tu contraseña?
+    </ion-button>
+    <ion-button color="danger" 
+    type="submit" expand="block" routerLink="/home">
+      CANCELAR
+    </ion-button>
+    
+
+  </form>
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="boton">
+      <ion-back-button 
+        defaultHref="/"
+        text="Back"
+        class="boton"
+        mode="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="titulo">Recp. Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form #formulario="ngForm" (ngSubmit) ="onSubmit()">
+    <ion-list-header>
+      <ion-label class="label">Ingresa correctamente los datos </ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label class="label" position="floating">Ingresa tu correo </ion-label>
+      <ion-input type="email" placeholder="email"
+                 name="email" value="" [(ngModel)]= "usuario.email"
+                 pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                 required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="label" position="floating">Re-Ingresa tu correo </ion-label>
+      <ion-input type="email" placeholder="email"
+                 name="email" value="" [(ngModel)]= "usuario.email"
+                 pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                 required>
+      </ion-input>
+    </ion-item>
+
+    <ion-button color="warning" [disabled] ="formulario.invalid"
+    type="submit" expand="block" routerLink="/sesion-alumno">
+      Enviar Codigo de Recuperación
+    </ion-button>
+    <ion-button color="danger" 
+    type="submit" expand="block" routerLink="/home">
+      CANCELAR
+    </ion-button>
+    
+
+  </form>
+</ion-content>
