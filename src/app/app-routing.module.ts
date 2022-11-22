@@ -1,46 +1,52 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { IngresarGuard } from './ingresar.guard';
+import { NoIngresadoGuard } from './no-ingresado.guard';
 
 const routes: Routes = [
-  ///quitamos el path por defecto
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'index',
     pathMatch: 'full'
   },
-  //verificamos que los path contengan todas las paginas
   {
-    path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    path: 'inicio',
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
-    path: 'login-alumno',
-    loadChildren: () => import('./pages/login-alumno/login-alumno.module').then( m => m.LoginAlumnoPageModule)
+    path: 'articulo',
+    loadChildren: () => import('./pages/articulo/articulo.module').then( m => m.ArticuloPageModule)
   },
   {
-    path: 'login-docente',
-    loadChildren: () => import('./pages/login-docente/login-docente.module').then( m => m.LoginDocentePageModule)
+    path: 'login',
+    loadChildren: () => import('./index/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'info-general',
-    loadChildren: () => import('./pages/login-info/login-info.module').then( m => m.LoginInfoPageModule)
+    path: 'create',
+    loadChildren: () => import('./index/create/create.module').then( m => m.CreatePageModule)
   },
   {
-    path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+    path: 'index',
+    loadChildren: () => import('./index/index/index.module').then( m => m.IndexPageModule)
   },
   {
-    path: 'sesion-alumno',
-    loadChildren: () => import('./pages/sesion-alumno/sesion-alumno.module').then( m => m.SesionAlumnoPageModule)
+    path: 'noticia',
+    loadChildren: () => import('./pages/noticia/noticia.module').then( m => m.NoticiaPageModule)
   },
   {
-    path: 'sesion-docente',
-    loadChildren: () => import('./pages/sesion-docente/sesion-docente.module').then( m => m.SesionDocentePageModule)
+    path: 'datos',
+    loadChildren: () => import('./pages/datos/datos.module').then( m => m.DatosPageModule)
   },
   {
-    path: 'recuperar-contrasenna',
-    loadChildren: () => import('./pages/recuperar-contrasenna/recuperar-contrasenna.module').then( m => m.RecuperarContrasennaPageModule)
-  }
+    path: 'inicio2',
+    loadChildren: () => import('./pages/inicio2/inicio2.module').then( m => m.Inicio2PageModule)
+  },
+  {
+    path: 'qr',
+    loadChildren: () => import('./pages/qr/qr.module').then( m => m.QrPageModule)
+  },
+
+
 ];
 
 @NgModule({

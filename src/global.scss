@@ -24,3 +24,53 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+body.scanner-active {
+    --background: transparent;
+    --ion-background-color: transparent;
+  }
+
+
+
+img{
+    width: 100% ;
+    height:100%;
+    display:block;
+    margin:auto;
+    object-fit: cover;
+    }
+.swiper-slide img{
+    width: 100% ;
+    height: 350px;
+    display:block;
+    margin:auto;
+    object-fit: cover;
+    ;
+}
+
+.color-chip{
+    color: #ffffff;
+    background-color: #acb8d5;
+}
+.logo{
+    width: 70px;
+}
+
+.botonAyuda {
+    color: aqua;
+}
+
+.titulo {
+    color:#042e54;
+}
+.boton {
+    color:#042e54;
+}
+
+.label {
+    color:#042e54;
+}
+
+.icono{
+    color:#042e54;
+}

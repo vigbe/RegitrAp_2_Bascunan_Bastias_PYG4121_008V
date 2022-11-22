@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="boton">
+      <ion-back-button 
+        defaultHref="/index"
+        text="Volver"
+        class="boton"
+        mode="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="titulo">Registrate!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-card-content>
+    <form [formGroup]="formularioRegistro" (keyup.enter)="guardar()">
+      <ion-list-header>
+        <ion-label class="label">Ingresa tus datos </ion-label>
+      </ion-list-header>
+      
+      <ion-item >
+        <ion-label>Nombre: </ion-label>
+        <ion-input
+                   type="name"
+                   slot="end" 
+                   formControlName="name"
+                   placeholder="Ingresa tu nombre">        
+        </ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Alias: </ion-label>
+        <ion-input 
+                  type="Alias"
+
+                  slot="end" 
+                  formControlName="Alias"
+                  placeholder="Ingresa tu Alias">
+      </ion-input>
+      </ion-item>
+     
+      <ion-item>
+        <ion-label>Tipo de Usuario</ion-label>
+        <ion-select
+                  type="tipoDeUsuario"
+
+                  formControlName="tipoDeUsuario"
+                  placeholder="Usuario" >
+          <ion-select-option value="f">Estudiante</ion-select-option>
+          <ion-select-option value="m">Docente</ion-select-option>
+          <ion-select-option value="o">Otro</ion-select-option>
+        </ion-select>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Correo: </ion-label>
+        <ion-input type="email" placeholder="Ingresar Correo " slot="end"
+                   formControlName="email"
+                   pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                   required>
+        </ion-input>
+      </ion-item>
+      
+  
+      <ion-item>
+        <ion-label>Contraseña: </ion-label>
+        <ion-input type="password" placeholder="Ingresar Contraseña" slot="end"
+                   formControlName="password"
+                   required>
+        </ion-input>
+      </ion-item>
+
+    </form>
+  </ion-card-content>
+
+</ion-content>
+<ion-footer>
+  <ion-button   (click)="guardar()" expand="full">Registrar  </ion-button>
+
+  <ion-button routerDirection="back" routerLink="/index"  expand="full">Volver</ion-button>
+</ion-footer>

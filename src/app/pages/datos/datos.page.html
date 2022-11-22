@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button 
+          defaultHref="/"
+          text="volver"
+          color="primary"
+          mode="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Justificaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label position="fixed">Nombre</ion-label>
+    <ion-input type="text" [(ngModel)]="newDato.nom" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Alias</ion-label>
+    <ion-input type="text" [(ngModel)]="newDato.Alias" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Detalle</ion-label>
+    <ion-input type="text" [(ngModel)]="newDato.solicitud" required></ion-input>
+  </ion-item>
+
+  <ion-button (click)="addDatos()" expand="full" color="primary" >
+    Enviar solicitud
+  </ion-button>
+
+  <ion-list #myList>
+    <ion-list-header>
+      <ion-label class="serv">Justificaciones en revision</ion-label>
+    </ion-list-header>
+
+    <ion-list>
+      <ion-item-sliding *ngFor="let dato of datos">
+        <ion-item>
+          <ion-label text-wrap> 
+            <h2> Alias:  {{dato.Alias}}</h2>
+            <p> Nombre: {{dato.nom}}</p>
+            <ion-text color="secondary">
+              <p>Solicitud: {{dato.solicitud}}</p>
+            </ion-text>
+            <p>{{dato.modified | date: 'short'}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="success" (click)="updateDatos(dato)">Actualizar</ion-item-option>
+         <ion-item-option color="danger" (click)="deleteDatos(dato)">Eliminar</ion-item-option> 
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-list>
+
+</ion-content>

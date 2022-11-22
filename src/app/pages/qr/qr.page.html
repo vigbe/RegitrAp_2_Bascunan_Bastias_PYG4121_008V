@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      QR CODE
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-text-center">
+    <ion-card-content>
+      <qrcode 
+      [qrdata]="myIonicQR" 
+      [width]="222" 
+      [errorCorrectionLevel]="'M'">
+    </qrcode>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button 
+  expand="block"
+  class="ion-margin" 
+  (Clic)="starScan()">
+    Click me
+  </ion-button>
+
+  <ion-item *ngIf="scanedResult">
+    <ion-label
+      class="ion-text-wrap">
+      Resultado Escaneado:{{scanedResult}}
+    </ion-label>
+  </ion-item>
+  <ion-button (click)="nexpage2()" expand="block">Atras</ion-button>
+</ion-content>

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-///Creamos la inferface
+
 interface Componente{
-  icon:string;
-  name:string;
+  icon: string; 
+  name: string; 
   redirecTo:string;
 }
 
@@ -12,37 +12,39 @@ interface Componente{
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+ 
   constructor() {}
 
+  componentes : Componente[] = [
+    {
+      icon: 'leaf-outline',
+      name: 'Menú',
+      redirecTo: '/inicio'
+    },
+    {
+      icon: 'bookmark-outline',
+      name: 'Sobre nosotros',
+      redirecTo: '/articulo'
+    },
+    {
+      icon: 'newspaper-outline',
+      name: 'Feriado',
+      redirecTo: '/noticia'
+    },
+    {
+      icon: 'ear-outline',
+      name: 'Justificaciones',
+      redirecTo: '/datos'
+    },
+    {
+      icon: 'exit-outline',
+      name: 'Salir',
+      redirecTo: '/index'
+    },
 
-//instanciamos el componente
-componentes : Componente[]=[
-  {
-      
-    icon: 'home',
-    name: 'Inicio',
-    redirecTo: '/home'
-  },
-  {
+ 
+  ];
 
-    icon: 'glasses-sharp',
-    name: 'Login Alumno',
-    redirecTo: '/login-alumno'
-  },
-  {
-    icon: 'glasses-outline',
-    name: 'Login Docente',
-    redirecTo: '/login-docente'
-  },
-  {
-    icon: 'card-outline',
-    name: '¿Cómo usar la APP?',
-    redirecTo: '/info-general'
-  },   
-  {
-    icon: 'finger-print-sharp',
-    name: 'Registrarse',
-    redirecTo: '/register'
-  }, 
-];
+  
+
 }
