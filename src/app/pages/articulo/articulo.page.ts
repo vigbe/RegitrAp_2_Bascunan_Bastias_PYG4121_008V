@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-articulo',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticuloPage implements OnInit {
 
-  constructor() { }
+  constructor(private menuController: MenuController) { }
 
   ngOnInit() {
+  }
+  mostrarMenu() {
+    this.menuController.open('first');
   }
 
 }

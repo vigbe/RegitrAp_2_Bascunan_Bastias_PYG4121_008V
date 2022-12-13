@@ -22,12 +22,15 @@
       ghibli : Ghibli[];
     }*/
 
-export interface RespuestaToHeadLines {
-          feriados: Feriado[];
-        }
+export interface RespuestaFeriados {
+      status: string;
+      data: Feriado[];
+    }
 
 export interface Feriado {
-          date: string;
-          title: string;
-          extra: string;
-        }
+      date: string;
+      title: string;
+      type: string;
+      inalienable: boolean;
+      extra: string;
+    }

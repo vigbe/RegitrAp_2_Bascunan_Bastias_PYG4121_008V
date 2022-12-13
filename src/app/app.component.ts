@@ -36,15 +36,12 @@ export class AppComponent {
       name: 'Justificaciones',
       redirecTo: '/datos'
     },
-    {
-      icon: 'exit-outline',
-      name: 'Salir',
-      redirecTo: '/index'
-    },
-
+    
  
   ];
 
-  
+  salir(){
+    return localStorage.clear();
+ }
 
 }

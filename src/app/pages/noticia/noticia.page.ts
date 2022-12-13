@@ -1,7 +1,8 @@
 import { Component,OnInit} from '@angular/core';
-import { NoticiasService } from 'src/app/services/noticias.service';
+import { NoticiasService } from '../../services/noticias.service';
 /*import { Ghibli } from 'src/app/interfaces/interfaces';*/
-import { Feriado } from 'src/app/interfaces/interfaces';
+import { Feriado } from '../../interfaces/interfaces';
+import { MenuController } from '@ionic/angular';
 
 
 
@@ -14,9 +15,10 @@ import { Feriado } from 'src/app/interfaces/interfaces';
 })
 export class NoticiaPage implements OnInit {
 
-  anexo: Feriado[]=[]
+  feriado: Feriado[] = [];
 
-  constructor(private noticiaService: NoticiasService){}
+  constructor(private noticiaService: NoticiasService,
+              private menuController: MenuController){}
 
   /*ngOnInit() {
     this.GhibliService.getGhibli().subscribe(resp=>{
@@ -25,12 +27,15 @@ export class NoticiaPage implements OnInit {
     });
   }*/
 
-  ngOnInit(){
-    this.noticiaService.getCalendario().subscribe(resp=>{
-      console.log('noticias',resp);
-      
-      this.anexo.push(...resp.feriados);
-    });
+  ngOnInit() {
+    this.noticiaService.getFeriado().subscribe(resp=>{
+      console.log('feriado',resp);
+      this.feriado.push(...resp.data);
+      });
+  }
+
+  mostrarMenu() {
+    this.menuController.open('first');
   }
 
 }

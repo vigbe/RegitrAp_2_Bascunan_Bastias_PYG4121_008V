@@ -1,76 +1,37 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
+import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-qr',
   templateUrl: './qr.page.html',
   styleUrls: ['./qr.page.scss'],
 })
-export class QrPage implements OnDestroy, OnInit {
+export class QrPage implements OnInit {
 
-  myIonicQR = "Aca debe ir fecha y ramo"
-  scanedResult: any;
-  content_visibility = 'hidden';
-
-  constructor(
- 
-    private route: Router
-  ) { }
-
-
-  nextpage2() {
-    this.route.navigate(['/inicio']);
-  }
-  ngOnInit() { }
-  async checkPermission(){
-    try {
-      //ver si los permisos estan activados
-      const status = await BarcodeScanner.checkPermission({ force:true });
-      if (status.granted){
-      //el usuario otorgó los permisos
-      return true;
-      }
-      return false;
-    } catch(e){
-      console.log(e)
-    
-    }
+  qrCodeString ="";
+  scannedResult: any;
+  constructor(private menuController: MenuController) { }
+  lista={
+    asignatura:'',
+    fecha:'',
   }
 
-
-  async starScan() {
-    try {const permision = await this.checkPermission();
-      if(!permision){
-        return;
-      }
-      await BarcodeScanner.hideBackground();
-      document.querySelector('body').classList.add('scanner-active');
-      this.content_visibility = 'hidden';
-      const result = await BarcodeScanner.startScan();
-      console.log(result);
-      this.content_visibility = 'hidden';
-      BarcodeScanner.showBackground();
-      document.querySelector('body').classList.add('scanner-active');
-      if (result?.hasContent){
-        this.scanedResult = result.content;
-        BarcodeScanner.showBackground();
-        document.querySelector('body').classList.add('scanner-active');
-        console.log(this.scanedResult);
-      }
-    } catch(e){
-      console.log(e);
-      this.stopScan();
-    }
+  ngOnInit() {
   }
 
-  stopScan() {
-    BarcodeScanner.showBackground();
-    BarcodeScanner.stopScan();
-    document.querySelector('body').classList.add('scanner-active');
+  mostrarMenu()
+  {
+    this.menuController.open('first');
   }
 
-  ngOnDestroy(): void {
-    this.stopScan();
+  GenerarQr(){
+    this.qrCodeString=this.lista.asignatura+'\n'
+    +this.lista.fecha;
+  }
+  verQr(){
+    this.scannedResult=this.qrCodeString;
+
+
   }
 }

@@ -37,6 +37,8 @@ export class InicioPage implements OnInit {
     private menuController: MenuController, 
     private route: Router
     ) { }
+
+    public name: string;
   
   nextpage() {
     this.route.navigate(['/qr']);
@@ -47,6 +49,7 @@ export class InicioPage implements OnInit {
   }
 
   ngOnInit() {
+    this.name=localStorage.getItem('name');
   }
 
   mostrarMenu() {

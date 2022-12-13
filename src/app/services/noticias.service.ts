@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 /*import { FilmGhibli } from '../interfaces/interfaces';*/
-import { RespuestaToHeadLines } from '../interfaces/interfaces';
+import { RespuestaFeriados } from '../interfaces/interfaces';
 
 
 
@@ -21,9 +21,8 @@ export class NoticiasService {
   }*/
 
   
-  getCalendario(){
-
-    return this.http.get<RespuestaToHeadLines>  ('https://apis.digital.gob.cl/fl/feriados')
+  getFeriado(){
+    return this.http.get<RespuestaFeriados>('https://api.victorsanmartin.com/feriados/en.json')
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ServiceDatosService, Datos } from 'src/app/services/servicedatos.service';
 import { Platform, ToastController, IonList} from '@ionic/angular';
-
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-datos',
@@ -16,7 +16,8 @@ export class DatosPage implements OnInit {
   @ViewChild('myList')myList :IonList; 
 
   constructor(private storageService: ServiceDatosService, 
-    private plt: Platform, private toastController: ToastController) {
+    private plt: Platform, private toastController: ToastController,
+    private menuController: MenuController) {
       this.plt.ready().then(()=>{
         this.loadDatos();
       });
@@ -67,7 +68,9 @@ export class DatosPage implements OnInit {
     toast.present();
   }
 
-
+  mostrarMenu() {
+    this.menuController.open('first');
+  }
 
 
 }

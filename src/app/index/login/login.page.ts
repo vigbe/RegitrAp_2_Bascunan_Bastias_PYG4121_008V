@@ -32,18 +32,20 @@ export class LoginPage implements OnInit {
       console.log('ingresado');
       localStorage.setItem('ingresado','true');
       this.navCtrl.navigateRoot('inicio');
+      localStorage.setItem('name',usuario.name);
     }
     else if(usuario.Alias == f.Alias && usuario.password ==  f.password && usuario.tipoDeUsuario == 'm')
     {
       console.log('ingresado');
       localStorage.setItem('ingresado','true');
       this.navCtrl.navigateRoot('inicio2');
+      localStorage.setItem('name',usuario.name);
     }
     else
     {
       const alert = await this.alertController.create({
         header:'Datos incorrectos',
-        message: 'Losß datos que ingresaste, no son correctos',
+        message: 'Los datos que ingresaste, no son correctos',
         buttons:['Aceptar']
       })
       await alert.present();

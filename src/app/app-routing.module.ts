@@ -11,39 +11,48 @@ const routes: Routes = [
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule),
+    canActivate:[IngresarGuard]
   },
   {
     path: 'articulo',
-    loadChildren: () => import('./pages/articulo/articulo.module').then( m => m.ArticuloPageModule)
+    loadChildren: () => import('./pages/articulo/articulo.module').then( m => m.ArticuloPageModule),
+    canActivate:[IngresarGuard]
   },
   {
     path: 'login',
-    loadChildren: () => import('./index/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./index/login/login.module').then( m => m.LoginPageModule),
+    canActivate:[NoIngresadoGuard]
   },
   {
     path: 'create',
-    loadChildren: () => import('./index/create/create.module').then( m => m.CreatePageModule)
+    loadChildren: () => import('./index/create/create.module').then( m => m.CreatePageModule),
+    canActivate:[NoIngresadoGuard]
   },
   {
     path: 'index',
-    loadChildren: () => import('./index/index/index.module').then( m => m.IndexPageModule)
+    loadChildren: () => import('./index/index/index.module').then( m => m.IndexPageModule),
+    canActivate:[NoIngresadoGuard]
   },
   {
     path: 'noticia',
-    loadChildren: () => import('./pages/noticia/noticia.module').then( m => m.NoticiaPageModule)
+    loadChildren: () => import('./pages/noticia/noticia.module').then( m => m.NoticiaPageModule),
+    canActivate:[IngresarGuard]
   },
   {
     path: 'datos',
-    loadChildren: () => import('./pages/datos/datos.module').then( m => m.DatosPageModule)
+    loadChildren: () => import('./pages/datos/datos.module').then( m => m.DatosPageModule),
+    canActivate:[IngresarGuard]
   },
   {
     path: 'inicio2',
-    loadChildren: () => import('./pages/inicio2/inicio2.module').then( m => m.Inicio2PageModule)
+    loadChildren: () => import('./pages/inicio2/inicio2.module').then( m => m.Inicio2PageModule),
+    canActivate:[IngresarGuard]
   },
   {
     path: 'qr',
-    loadChildren: () => import('./pages/qr/qr.module').then( m => m.QrPageModule)
+    loadChildren: () => import('./pages/qr/qr.module').then( m => m.QrPageModule),
+    canActivate:[IngresarGuard]
   },
 
 
